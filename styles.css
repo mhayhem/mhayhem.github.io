@@ -50,22 +50,35 @@ footer {
         margin: auto;
         width: 90%;
     }
+    #info {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px 30px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 }   
 
 i:hover {
     color: #fff;
 }
+/* grid selectors */
+#info img {
+    grid-row: 1/3;
+}
+#stud {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+#fut {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
 /* hereditariant selectors */
 #info img {
     border-left: 5px solid #7824A8;
-    float: left;
-    flex-wrap: wrap;
-}
-
-#info h3 {
-    position: relative;
-    top: 100px;
-    left: 5px;  
 }
 #text p {
     font: 100 20px "Edu NSW ACT Foundation", cursive;  
@@ -83,6 +96,8 @@ footer li {
 #info {
     height: 250px;
     border-bottom:5px solid #7824A8;
+    display: grid;
+    grid-template-columns: 250px 1fr;
 }
 #personal {
     padding-top: 150px;
