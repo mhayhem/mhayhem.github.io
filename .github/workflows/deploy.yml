@@ -1,0 +1,35 @@
+name: deploy portofolio
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} 
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v6
+
+      - name: prepare action
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: src/
+
+      - name: Deployment Page
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
